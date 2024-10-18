@@ -17,39 +17,39 @@ with st.sidebar:
     icons = ["house","book","envelope"],
     menu_icon = "cast",
     default_index = 0,
+    )
+  
+if selected == "Home":
+    st.header('Snowflake Healthcare App')
+    # Create a row layout
+    c1, c2= st.columns(2)
+    c3, c4= st.columns(2)
 
-  )
-  if selected == "Home":
-        st.header('Snowflake Healthcare App')
-        # Create a row layout
-        c1, c2= st.columns(2)
-        c3, c4= st.columns(2)
+    with st.container():
+        c1.write("c1")
+        c2.write("c2")
 
-        with st.container():
-            c1.write("c1")
-            c2.write("c2")
+    with st.container():
+        c3.write("c3")
+        c4.write("c4")
 
-        with st.container():
-            c3.write("c3")
-            c4.write("c4")
+    with c1:
+        chart_data = pd.DataFrame(np.random.randn(20, 3),columns=['a', 'b', 'c'])
+        st.area_chart(chart_data)
+        
+    with c2:
+        chart_data = pd.DataFrame(np.random.randn(20, 3),columns=["a", "b", "c"])
+        st.bar_chart(chart_data)
 
-        with c1:
-            chart_data = pd.DataFrame(np.random.randn(20, 3),columns=['a', 'b', 'c'])
-            st.area_chart(chart_data)
-            
-        with c2:
-            chart_data = pd.DataFrame(np.random.randn(20, 3),columns=["a", "b", "c"])
-            st.bar_chart(chart_data)
+    with c3:
+        chart_data = pd.DataFrame(np.random.randn(20, 3),columns=['a', 'b', 'c'])
+        st.line_chart(chart_data)
 
-        with c3:
-            chart_data = pd.DataFrame(np.random.randn(20, 3),columns=['a', 'b', 'c'])
-            st.line_chart(chart_data)
+    with c4:
+        chart_data = pd.DataFrame(np.random.randn(20, 3),columns=['a', 'b', 'c'])
+        st.line_chart(chart_data)
 
-        with c4:
-            chart_data = pd.DataFrame(np.random.randn(20, 3),columns=['a', 'b', 'c'])
-            st.line_chart(chart_data)
-
-  if selected == "Projects":
+if selected == "Projects":
     st.write("### Sepal Length vs Sepal Width Scatter Plot")
     sns.set_style('whitegrid')
     fig, ax = plt.subplots()
@@ -61,6 +61,6 @@ with st.sidebar:
         ax=ax
     )
 
-    # 차트 출력
-    st.pyplot(fig)
+# 차트 출력
+st.pyplot(fig)
 
